@@ -1,0 +1,35 @@
+@use "./utilities/global" as *;
+
+.main {
+  padding: rem(24px) rem(16px) rem(29px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: rem(31px);
+}
+
+.title {
+  @include setFont(rem(20px), 25px, 800);
+  color: color(very-dark-blue);
+  margin-right: em(9px, 20px);
+}
+
+.number {
+  @include setFont(rem(16px), 20px, 800);
+  color: color(white);
+  padding: em(1px, 16px) em(11px, 16px) em(4px, 16px);
+  background-color: color(blue);
+  border-radius: 6px;
+}
+
+.mark_as_read {
+  margin-left: auto;
+  @include setFont(rem(16px), 20px, 500);
+  color: color(dark-grayish-blue);
+  cursor: pointer;
+  &:hover {
+    color: color(blue);
+  }
+}

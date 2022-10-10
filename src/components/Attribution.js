@@ -2,7 +2,7 @@ import scss from "../styles/Attribution.module.scss";
 
 function Attribution() {
   return (
-    <div class={scss.attribution}>
+    <div className={scss.attribution}>
       Challenge by{" "}
       <a
         href="https://www.frontendmentor.io?ref=challenge"

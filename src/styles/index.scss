@@ -1,0 +1,39 @@
+@use "./utilities/global" as *;
+
+@include setup;
+
+@font-face {
+  font-family: "Plus Jakarta Sans Variable";
+  src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+  font-weight: 200 800;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans Static";
+  src: url("../assets/fonts/static/PlusJakartaSans-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans Static";
+  src: url("../assets/fonts/static/PlusJakartaSans-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+body {
+  font-family: "Plus Jakarta Sans Static", sans-serif;
+}
+
+#div {
+  width: 100%;
+}
+
+a:any-link {
+  text-decoration: none;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Plus Jakarta Sans Variable", sans-serif;
+  }
+}

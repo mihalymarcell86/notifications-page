@@ -1,0 +1,75 @@
+@use "./utilities/global" as *;
+
+.container {
+  padding: rem(16px);
+  display: flex;
+  gap: rem(13px);
+  border-radius: 8px;
+  background-color: white;
+  margin-bottom: rem(10px);
+  @include setFont(rem(14px), 18px, 500);
+  color: color(dark-grayish-blue);
+}
+
+.container--unread {
+  composes: container;
+  background-color: color(very-light-grayish-blue);
+}
+
+.avatar {
+  width: rem(39px);
+  height: rem(39px);
+}
+
+.dot {
+  display: inline-block;
+  width: rem(8px);
+  height: rem(8px);
+  background-color: color(red);
+  border-radius: 50%;
+  margin-left: rem(6px);
+}
+
+.user_name {
+  font-weight: 800;
+  color: color(very-dark-blue);
+  &:hover {
+    color: color(blue);
+  }
+}
+
+.link_post {
+  &:any-link {
+    color: inherit;
+    font-weight: 800;
+  }
+  &:hover {
+    color: color(blue);
+  }
+}
+
+.link_group:any-link {
+  color: color(blue);
+  font-weight: 800;
+}
+
+.message {
+  border: 1px solid color(light-grayish-blue-2);
+  border-radius: 5px;
+  padding: rem(16px);
+  margin-top: rem(12px);
+  cursor: pointer;
+  &:hover {
+    background-color: color(light-grayish-blue-1);
+  }
+}
+
+.commented_pic {
+  width: rem(39px);
+  height: rem(39px);
+}
+
+.elapsed_time {
+  color: color(grayish-blue);
+  margin-top: rem(3px);
+}
