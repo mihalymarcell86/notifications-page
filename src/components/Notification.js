@@ -42,8 +42,8 @@ function Notification({ user, action, target, read, time }) {
       </div>
 
       {action === "COMMENT_PIC" && (
-        <a href="/">
-          <img src={target} alt="" className={scss.commented_pic} />
+        <a href="/" className={scss.commented_pic}>
+          <img src={target} alt="" />
         </a>
       )}
     </div>

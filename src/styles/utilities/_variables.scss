@@ -1,7 +1,8 @@
 $REM: 16;
 $font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
 
-$breakpoint: 1440px;
+$w-mobile: 375px;
+$breakpoint: 730px;
 
 $colors: (
   red: hsl(1, 90%, 64%),

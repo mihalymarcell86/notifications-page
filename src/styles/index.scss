@@ -22,6 +22,7 @@
 
 body {
   font-family: "Plus Jakarta Sans Static", sans-serif;
+  background-color: hsl(225, 50%, 98%);
 }
 
 #div {
@@ -30,6 +31,10 @@ body {
 
 a:any-link {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 @supports (font-variation-settings: normal) {

@@ -1,19 +1,36 @@
 @use "./utilities/global" as *;
 
 .main {
-  padding: rem(24px) rem(16px) rem(29px);
+  padding: {
+    top: lerp_clamp($w-mobile, rem(24px), $breakpoint, rem(33px));
+    inline: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(30px));
+    bottom: lerp_clamp($w-mobile, rem(29px), $breakpoint, 0rem);
+  }
+  max-width: rem(730px);
+  background-color: color(white);
+  margin: {
+    top: lerp_clamp($w-mobile, 0rem, $breakpoint, rem(63px));
+    inline: auto;
+    bottom: lerp_clamp($w-mobile, 0rem, $breakpoint, rem(89px));
+  }
+  @media (min-width: $breakpoint) {
+    box-shadow: 0px 20px 60px rgba(73, 97, 168, 0.05);
+    border-radius: 15px;
+  }
 }
 
 .header {
   display: flex;
   align-items: center;
-  margin-bottom: rem(31px);
+  margin-bottom: lerp_clamp($w-mobile, rem(24px), $breakpoint, rem(31px));
 }
 
 .title {
-  @include setFont(rem(20px), 25px, 800);
+  font-size: lerp_clamp($w-mobile, rem(20px), $breakpoint, rem(24px));
+  line-height: lerp_clamp($w-mobile, rem(25px), $breakpoint, rem(30px));
+  font-weight: 800;
   color: color(very-dark-blue);
-  margin-right: em(9px, 20px);
+  margin-right: lerp($w-mobile, rem(9px), $breakpoint, rem(11px));
 }
 
 .number {
@@ -26,7 +43,9 @@
 
 .mark_as_read {
   margin-left: auto;
-  @include setFont(rem(16px), 20px, 500);
+  font-size: lerp_clamp($w-mobile, rem(14px), $breakpoint, rem(16px));
+  line-height: lerp_clamp($w-mobile, rem(18px), $breakpoint, rem(20px));
+  font-weight: 500;
   color: color(dark-grayish-blue);
   cursor: pointer;
   &:hover {

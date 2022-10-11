@@ -1,13 +1,21 @@
 @use "./utilities/global" as *;
 
+//TODO vertical positioning of red dot
+
 .container {
-  padding: rem(16px);
+  padding: {
+    top: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(18px));
+    inline: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(20px));
+    bottom: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(17px));
+  }
   display: flex;
-  gap: rem(13px);
+  gap: lerp_clamp($w-mobile, rem(13px), $breakpoint, rem(19px));
   border-radius: 8px;
   background-color: white;
-  margin-bottom: rem(10px);
-  @include setFont(rem(14px), 18px, 500);
+  margin-bottom: lerp_clamp($w-mobile, rem(10px), $breakpoint, rem(8px));
+  font-size: lerp_clamp($w-mobile, rem(14px), $breakpoint, rem(16px));
+  line-height: lerp_clamp($w-mobile, rem(18px), $breakpoint, rem(20px));
+  font-weight: 500;
   color: color(dark-grayish-blue);
 }
 
@@ -16,9 +24,10 @@
   background-color: color(very-light-grayish-blue);
 }
 
-.avatar {
-  width: rem(39px);
-  height: rem(39px);
+.avatar,
+.commented_pic {
+  width: lerp_clamp($w-mobile, rem(39px), $breakpoint, rem(45px));
+  height: lerp_clamp($w-mobile, rem(39px), $breakpoint, rem(45px));
 }
 
 .dot {
@@ -28,11 +37,13 @@
   background-color: color(red);
   border-radius: 50%;
   margin-left: rem(6px);
+  margin-bottom: rem(1px);
 }
 
 .user_name {
   font-weight: 800;
   color: color(very-dark-blue);
+  margin-right: rem(6px);
   &:hover {
     color: color(blue);
   }
@@ -42,6 +53,7 @@
   &:any-link {
     color: inherit;
     font-weight: 800;
+    margin-left: rem(6px);
   }
   &:hover {
     color: color(blue);
@@ -51,13 +63,18 @@
 .link_group:any-link {
   color: color(blue);
   font-weight: 800;
+  margin-left: rem(6px);
 }
 
 .message {
   border: 1px solid color(light-grayish-blue-2);
   border-radius: 5px;
-  padding: rem(16px);
-  margin-top: rem(12px);
+  padding: {
+    top: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(17px));
+    inline: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(20px));
+    bottom: lerp_clamp($w-mobile, rem(16px), $breakpoint, rem(20px));
+  }
+  margin-top: lerp_clamp($w-mobile, rem(12px), $breakpoint, rem(13px));
   cursor: pointer;
   &:hover {
     background-color: color(light-grayish-blue-1);
@@ -65,8 +82,8 @@
 }
 
 .commented_pic {
-  width: rem(39px);
-  height: rem(39px);
+  margin-left: auto;
+  min-width: rem(39px);
 }
 
 .elapsed_time {
