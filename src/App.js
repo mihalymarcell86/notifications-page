@@ -1,61 +1,55 @@
+import { useState } from "react";
 import Notification from "./components/Notification";
 // import Attribution from "./components/Attribution";
-import scss from "./styles/App.module.scss";
 
-import users from "./data/userData";
-import chessImage from "./assets/images/image-chess.webp";
+import scss from "./styles/App.module.scss";
+import notifications from "./data/notificationsData";
 
 function App() {
+  const [data, setData] = useState(notifications);
+  const unreadCount = data.reduce(
+    (prev, curr) => (curr.read ? prev + 0 : prev + 1),
+    0
+  );
+
+  function changeReadStatus(i) {
+    setData((prevData) =>
+      prevData.map((n, idx) => {
+        if (idx === i) n.read = true;
+        return n;
+      })
+    );
+  }
+
+  function markAllRead() {
+    setData((prevData) =>
+      prevData.map((n) => {
+        return { ...n, read: true };
+      })
+    );
+  }
+
   return (
     <main className={scss.main}>
       <header className={scss.header}>
         <h1 className={scss.title}>Notifications</h1>
-        <div className={scss.number}>3</div>
-        <div className={scss.mark_as_read}>Mark all as read</div>
+        <div className={scss.number}>{unreadCount}</div>
+        <div className={scss.mark_as_read} onClick={markAllRead}>
+          Mark all as read
+        </div>
       </header>
-      <Notification
-        user={users[0]}
-        time="1m"
-        action="REACT_POST"
-        target="My first tournament today!"
-        read={false}
-      />
-      <Notification user={users[1]} time="5m" action="FOLLOW" read={false} />
-      <Notification
-        user={users[2]}
-        time="1 day"
-        action="JOINED_GROUP"
-        target="Chess Club"
-        read={false}
-      />
-      <Notification
-        user={users[3]}
-        time="5 days"
-        read={true}
-        action="MESSAGE"
-        target="Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game."
-      />
-      <Notification
-        user={users[4]}
-        time="1 week"
-        action="COMMENT_PIC"
-        target={chessImage}
-        read={true}
-      />
-      <Notification
-        user={users[5]}
-        time="2 weeks"
-        action="REACT_POST"
-        target="5 end-game strategies to increase your win rate"
-        read={true}
-      />
-      <Notification
-        user={users[6]}
-        time="2 weeks"
-        action="LEFT_GROUP"
-        target="Chess Club"
-        read={true}
-      />
+      {data.map((n, i) => (
+        <Notification
+          key={i}
+          username={n.userName}
+          avatar={n.avatar}
+          time={n.time}
+          action={n.action}
+          target={n.target}
+          read={n.read}
+          onClick={() => changeReadStatus(i)}
+        />
+      ))}
       {/* <Attribution /> */}
     </main>
   );

@@ -10,18 +10,29 @@ const userActions = {
   COMMENT_PIC: "commented on your picture",
 };
 
-function Notification({ user, action, target, read, time }) {
+function Notification({
+  username,
+  avatar,
+  action,
+  target,
+  read,
+  time,
+  onClick,
+}) {
   return (
-    <div className={read ? scss.container : scss["container--unread"]}>
+    <div
+      className={read ? scss.container : scss["container--unread"]}
+      onClick={() => onClick()}
+    >
       <img
-        src={user.avatar}
+        src={avatar}
         type="image/webp"
-        alt={`${user.userName}'s avatar`}
+        alt={`${username}'s avatar`}
         className={scss.avatar}
       />
       <div>
         <a href="/" className={scss.user_name}>
-          {user.userName}
+          {username}
         </a>{" "}
         {userActions[action]}{" "}
         {action === "REACT_POST" && (
