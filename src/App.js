@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Notification from "./components/Notification";
-// import Attribution from "./components/Attribution";
 
 import scss from "./styles/App.module.scss";
 import notifications from "./data/notificationsData";
@@ -50,7 +49,6 @@ function App() {
           onClick={() => changeReadStatus(i)}
         />
       ))}
-      {/* <Attribution /> */}
     </main>
   );
 }
