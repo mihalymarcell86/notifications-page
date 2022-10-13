@@ -53,5 +53,5 @@ This time, I decided to extract the data from the given HTML file, and store it 
 
 ## Author
 
-- GiThub - [@mihalymarcell86](https://www.github.com/mihalymarcell86)
+- GitHub - [@mihalymarcell86](https://www.github.com/mihalymarcell86)
 - Frontend Mentor - [@mihalymarcell86](https://www.frontendmentor.io/profile/mihalymarcell86)
