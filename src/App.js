@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Notification from "./components/Notification";
+import Attribution from "./components/Attribution";
 
 import scss from "./styles/App.module.scss";
 import notifications from "./data/notificationsData";
@@ -29,27 +30,33 @@ function App() {
   }
 
   return (
-    <main className={scss.main}>
-      <header className={scss.header}>
-        <h1 className={scss.title}>Notifications</h1>
-        <div className={scss.number}>{unreadCount}</div>
-        <div className={scss.mark_as_read} onClick={markAllRead}>
-          Mark all as read
-        </div>
-      </header>
-      {data.map((n, i) => (
-        <Notification
-          key={i}
-          username={n.userName}
-          avatar={n.avatar}
-          time={n.time}
-          action={n.action}
-          target={n.target}
-          read={n.read}
-          onClick={() => changeReadStatus(i)}
-        />
-      ))}
-    </main>
+    <>
+      <main className={scss.main}>
+        <header className={scss.header}>
+          <h1 className={scss.title}>Notifications</h1>
+          <div className={scss.number}>{unreadCount}</div>
+          <div className={scss.mark_as_read} onClick={markAllRead}>
+            Mark all as read
+          </div>
+        </header>
+        {data.map((n, i) => (
+          <Notification
+            key={i}
+            username={n.userName}
+            avatar={n.avatar}
+            time={n.time}
+            action={n.action}
+            target={n.target}
+            read={n.read}
+            description={n.description}
+            onClick={() => changeReadStatus(i)}
+          />
+        ))}
+      </main>
+      <footer>
+        <Attribution />
+      </footer>
+    </>
   );
 }
 

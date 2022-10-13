@@ -17,6 +17,7 @@ function Notification({
   target,
   read,
   time,
+  description,
   onClick,
 }) {
   return (
@@ -24,12 +25,7 @@ function Notification({
       className={read ? scss.container : scss["container--unread"]}
       onClick={() => onClick()}
     >
-      <img
-        src={avatar}
-        type="image/webp"
-        alt={`${username}'s avatar`}
-        className={scss.avatar}
-      />
+      <img src={avatar} alt={`${username}'s avatar`} className={scss.avatar} />
       <div>
         <a href="/" className={scss.user_name}>
           {username}
@@ -54,7 +50,7 @@ function Notification({
 
       {action === "COMMENT_PIC" && (
         <a href="/" className={scss.commented_pic}>
-          <img src={target} alt="" />
+          <img src={target} alt={description} />
         </a>
       )}
     </div>
